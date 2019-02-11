@@ -97,7 +97,6 @@ public struct JPSJsonPatch {
     }
 }
 
-
 // MARK: - Private functions
 
 extension JPSJsonPatch {
@@ -105,7 +104,7 @@ extension JPSJsonPatch {
     fileprivate static func extractOperationFromJson(_ json: JSON) throws -> JPSOperation {
         
         // The elements 'op' and 'path' are mandatory.
-        guard let operation = json[JPSConstants.JsonPatch.Parameter.Op].string else {
+        guard let operation = json[JPSConstants.JsonPatch.Parameter.OpConst].string else {
             throw JPSJsonPatchInitialisationError.invalidPatchFormat(message: JPSConstants.JsonPatch.InitialisationErrorMessages.OpElementNotFound)
         }
         guard let path = json[JPSConstants.JsonPatch.Parameter.Path].string else {

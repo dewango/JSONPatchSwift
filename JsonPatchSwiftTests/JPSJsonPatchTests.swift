@@ -12,7 +12,6 @@ import XCTest
 @testable import JsonPatchSwift
 import SwiftyJSON
 
-// swiftlint:disable opening_brace
 class JPSJsonPatchTests: XCTestCase {
     
     func testMultipleOperations1() {

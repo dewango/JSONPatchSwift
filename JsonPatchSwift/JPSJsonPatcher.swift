@@ -50,7 +50,6 @@ public struct JPSJsonPatcher {
     }
 }
 
-
 // MARK: - Private functions
 
 extension JPSJsonPatcher {
@@ -60,8 +59,7 @@ extension JPSJsonPatcher {
             return operation.value
         }
         
-        return try JPSJsonPatcher.applyOperation(json, pointer: operation.pointer) {
-            (traversedJson, pointer) -> JSON in
+        return try JPSJsonPatcher.applyOperation(json, pointer: operation.pointer) { (traversedJson, pointer) -> JSON in
             var newJson = traversedJson
             if var jsonAsDictionary = traversedJson.dictionaryObject, let key = pointer.pointerValue.first as? String {
                 jsonAsDictionary[key] = operation.value.object
@@ -78,8 +76,7 @@ extension JPSJsonPatcher {
     }
 
     fileprivate static func remove(_ operation: JPSOperation, toJson json: JSON) throws -> JSON {
-        return try JPSJsonPatcher.applyOperation(json, pointer: operation.pointer) {
-            (traversedJson: JSON, pointer: JPSJsonPointer) in
+        return try JPSJsonPatcher.applyOperation(json, pointer: operation.pointer) { (traversedJson: JSON, pointer: JPSJsonPointer) in
             var newJson = traversedJson
             if var dictionary = traversedJson.dictionaryObject, let key = pointer.pointerValue.first as? String {
                 dictionary.removeValue(forKey: key)
@@ -94,8 +91,7 @@ extension JPSJsonPatcher {
     }
 
     fileprivate static func replace(_ operation: JPSOperation, toJson json: JSON) throws -> JSON {
-        return try JPSJsonPatcher.applyOperation(json, pointer: operation.pointer) {
-            (traversedJson: JSON, pointer: JPSJsonPointer) in
+        return try JPSJsonPatcher.applyOperation(json, pointer: operation.pointer) { (traversedJson: JSON, pointer: JPSJsonPointer) in
             var newJson = traversedJson
             if var dictionary = traversedJson.dictionaryObject, let key = pointer.pointerValue.first as? String {
                 dictionary[key] = operation.value.object
@@ -112,8 +108,7 @@ extension JPSJsonPatcher {
     fileprivate static func move(_ operation: JPSOperation, toJson json: JSON) throws -> JSON {
         var resultJson = json
         
-        try JPSJsonPatcher.applyOperation(json, pointer: operation.from!) {
-            (traversedJson: JSON, pointer: JPSJsonPointer) in
+        try _ = JPSJsonPatcher.applyOperation(json, pointer: operation.from!) { (traversedJson: JSON, pointer: JPSJsonPointer) in
             
             // From: http://tools.ietf.org/html/rfc6902#section-4.3
             //    This operation is functionally identical to a "remove" operation for
@@ -141,8 +136,7 @@ extension JPSJsonPatcher {
     fileprivate static func copy(_ operation: JPSOperation, toJson json: JSON) throws -> JSON {
         var resultJson = json
         
-        try JPSJsonPatcher.applyOperation(json, pointer: operation.from!) {
-            (traversedJson: JSON, pointer: JPSJsonPointer) in
+        try _ = JPSJsonPatcher.applyOperation(json, pointer: operation.from!) { (traversedJson: JSON, pointer: JPSJsonPointer) in
             var jsonToAdd = traversedJson[pointer.pointerValue]
             if traversedJson.array != nil, let indexString = pointer.pointerValue.first as? String, let index = Int(indexString) {
                 jsonToAdd = traversedJson[index]
@@ -157,8 +151,7 @@ extension JPSJsonPatcher {
     }
     
     fileprivate static func test(_ operation: JPSOperation, toJson json: JSON) throws -> JSON {
-        return try JPSJsonPatcher.applyOperation(json, pointer: operation.pointer) {
-            (traversedJson: JSON, pointer: JPSJsonPointer) in
+        return try JPSJsonPatcher.applyOperation(json, pointer: operation.pointer) { (traversedJson: JSON, pointer: JPSJsonPointer) in
             let jsonToValidate = traversedJson[pointer.pointerValue]
             guard jsonToValidate == operation.value else {
                 throw JPSJsonPatcherApplyError.validationError(message: JPSConstants.JsonPatch.ErrorMessages.ValidationError)

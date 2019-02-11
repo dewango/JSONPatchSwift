@@ -16,7 +16,7 @@ struct JPSConstants {
     struct JsonPatch {
         
         struct Parameter {
-            static let Op = "op"
+            static let OpConst = "op"
             static let Path = "path"
             static let Value = "value"
             static let From = "from"
@@ -38,9 +38,7 @@ struct JPSConstants {
         }
         
     }
-    
-    
-    
+
     struct Operation {
         static let Add = "add"
         static let Remove = "remove"

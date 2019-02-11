@@ -17,7 +17,6 @@ import XCTest
 
 class JPSJsonPointerTests: XCTestCase {}
 
-
 // MARK: - chapter 3 tests
 
 extension JPSJsonPointerTests {
@@ -34,7 +33,7 @@ extension JPSJsonPointerTests {
     
     func testIfJsoinPointerRejectsInputWithoutSlashDelimiter() {
         do {
-            let _ = try JPSJsonPointer(rawValue: "ab")
+            _ = try JPSJsonPointer(rawValue: "ab")
             XCTFail("Unreachable code. Invalid pointer should raise an error.")
         } catch {
             // Expected behaviour.
@@ -43,7 +42,7 @@ extension JPSJsonPointerTests {
     
     func testIfNonEmptyJsonPointerStartsWithDelimiter() {
         do {
-            let _ = try JPSJsonPointer(rawValue: "a/b/c")
+            _ = try JPSJsonPointer(rawValue: "a/b/c")
             XCTFail("Unreachable code. Invalid pointer should raise an error.")
         } catch {
             // Expected behaviour.
@@ -52,7 +51,7 @@ extension JPSJsonPointerTests {
     
     func testIfEmptyReferenceTokenIsInvalid() {
         do {
-            let _ = try JPSJsonPointer(rawValue: "/a//c")
+            _ = try JPSJsonPointer(rawValue: "/a//c")
             XCTFail("Unreachable code. Invalid pointer should raise an error.")
         } catch {
             // Expected behaviour.
@@ -61,7 +60,7 @@ extension JPSJsonPointerTests {
     
     func testIfPointerOnlyContainingDelimiterIsInvalid() {
         do {
-            let _ = try JPSJsonPointer(rawValue: JPSConstants.JsonPointer.Delimiter)
+            _ = try JPSJsonPointer(rawValue: JPSConstants.JsonPointer.Delimiter)
             XCTFail("Unreachable code. Invalid pointer should raise an error.")
         } catch {
             // Expected behaviour.
@@ -87,10 +86,8 @@ extension JPSJsonPointerTests {
 //    this syntax (see Section 7).
 //    
 //    Note that JSON Pointers are specified in characters, not as bytes.
-    
-    
-}
 
+}
 
 // MARK: - chapter 4 tests
 
@@ -138,16 +135,13 @@ extension JPSJsonPointerTests {
 //    
 //    Any error condition for which a specific action is not defined by the
 //    JSON Pointer application results in termination of evaluation.
-    
-    
-}
 
+}
 
 // MARK: - chapter 6 tests
 
 extension JPSJsonPointerTests {
-    
-    
+
 //
 //    6.  URI Fragment Identifier Representation
 //    
@@ -178,17 +172,13 @@ extension JPSJsonPointerTests {
 //    #/k%22l      6
 //    #/%20        7
 //    #/m~0n       8
-    
-    
-    
-}
 
+}
 
 // MARK: - chapter 7 tests
 
 extension JPSJsonPointerTests {
-    
-    
+
 //
 //    7.  Error Handling
 //    
@@ -208,17 +198,13 @@ extension JPSJsonPointerTests {
 //    For example, some applications might stop pointer processing upon an
 //    error, while others may attempt to recover from missing values by
 //    inserting default ones.
-    
-    
-    
-}
 
+}
 
 // MARK: - chapter 8 tests
 
 extension JPSJsonPointerTests {
-    
-    
+
 //
 //    8.  Security Considerations
 //    

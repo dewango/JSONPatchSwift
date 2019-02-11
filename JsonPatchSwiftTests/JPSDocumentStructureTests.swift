@@ -14,7 +14,6 @@ import XCTest
 // http://tools.ietf.org/html/rfc6902#section-3
 // 3. Document Structure (and the general Part of Chapter 4)
 
-// swiftlint:disable opening_brace
 class JPSDocumentStructureTests: XCTestCase {
     
     func testJsonPatchContainsArrayOfOperations() {
@@ -42,13 +41,13 @@ class JPSDocumentStructureTests: XCTestCase {
         XCTAssertEqual(jsonPatch.operations.count, 3)
         XCTAssertTrue((jsonPatch.operations[0] as Any) is JPSOperation)
         let operation0 = jsonPatch.operations[0]
-        XCTAssertEqual(operation0.type, JPSOperation.JPSOperationType.Test)
+        XCTAssertEqual(operation0.type, JPSOperation.JPSOperationType.test)
         XCTAssertTrue((jsonPatch.operations[1] as Any) is JPSOperation)
         let operation1 = jsonPatch.operations[1]
-        XCTAssertEqual(operation1.type, JPSOperation.JPSOperationType.Add)
+        XCTAssertEqual(operation1.type, JPSOperation.JPSOperationType.add)
         XCTAssertTrue((jsonPatch.operations[2] as Any) is JPSOperation)
         let operation2 = jsonPatch.operations[2]
-        XCTAssertEqual(operation2.type, JPSOperation.JPSOperationType.Remove)
+        XCTAssertEqual(operation2.type, JPSOperation.JPSOperationType.remove)
     }
     
     // This is about the JSON format in general.
@@ -56,7 +55,7 @@ class JPSDocumentStructureTests: XCTestCase {
         do {
             _ = try JPSJsonPatch("!#€%&/()*^*_:;;:;_poawolwasnndaw")
             XCTFail("Unreachable code. Should have raised an error.")
-        } catch JPSJsonPatch.JPSJsonPatchInitialisationError.InvalidJsonFormat(let message) {
+        } catch JPSJsonPatch.JPSJsonPatchInitialisationError.invalidJsonFormat(let message) {
             // Expected behaviour.
             XCTAssertNotNil(message)
         } catch {
@@ -71,7 +70,7 @@ class JPSDocumentStructureTests: XCTestCase {
         XCTAssertEqual(jsonPatch.operations.count, 1)
         XCTAssertTrue((jsonPatch.operations[0] as Any) is JPSOperation)
         let operation0 = jsonPatch.operations[0]
-        XCTAssertEqual(operation0.type, JPSOperation.JPSOperationType.Test)
+        XCTAssertEqual(operation0.type, JPSOperation.JPSOperationType.test)
     }
     
     func testJsonPatchWithDictionaryAsRootElementForOperationAdd() {
@@ -81,7 +80,7 @@ class JPSDocumentStructureTests: XCTestCase {
         XCTAssertEqual(jsonPatch.operations.count, 1)
         XCTAssertTrue((jsonPatch.operations[0] as Any) is JPSOperation)
         let operation0 = jsonPatch.operations[0]
-        XCTAssertEqual(operation0.type, JPSOperation.JPSOperationType.Add)
+        XCTAssertEqual(operation0.type, JPSOperation.JPSOperationType.add)
     }
     
     func testJsonPatchWithDictionaryAsRootElementForOperationCopy() {
@@ -91,7 +90,7 @@ class JPSDocumentStructureTests: XCTestCase {
         XCTAssertEqual(jsonPatch.operations.count, 1)
         XCTAssertTrue((jsonPatch.operations[0] as Any) is JPSOperation)
         let operation0 = jsonPatch.operations[0]
-        XCTAssertEqual(operation0.type, JPSOperation.JPSOperationType.Copy)
+        XCTAssertEqual(operation0.type, JPSOperation.JPSOperationType.copy)
     }
     
     func testJsonPatchWithDictionaryAsRootElementForOperationRemove() {
@@ -101,7 +100,7 @@ class JPSDocumentStructureTests: XCTestCase {
         XCTAssertEqual(jsonPatch.operations.count, 1)
         XCTAssertTrue((jsonPatch.operations[0] as Any) is JPSOperation)
         let operation0 = jsonPatch.operations[0]
-        XCTAssertEqual(operation0.type, JPSOperation.JPSOperationType.Remove)
+        XCTAssertEqual(operation0.type, JPSOperation.JPSOperationType.remove)
     }
     
     func testJsonPatchWithDictionaryAsRootElementForOperationReplace() {
@@ -111,14 +110,14 @@ class JPSDocumentStructureTests: XCTestCase {
         XCTAssertEqual(jsonPatch.operations.count, 1)
         XCTAssertTrue((jsonPatch.operations[0] as Any) is JPSOperation)
         let operation0 = jsonPatch.operations[0]
-        XCTAssertEqual(operation0.type, JPSOperation.JPSOperationType.Replace)
+        XCTAssertEqual(operation0.type, JPSOperation.JPSOperationType.replace)
     }
     
     func testJsonPatchRejectsMissingOperation() {
         do {
-            let _ = try JPSJsonPatch("{ \"path\": \"/a/b/c\", \"value\": \"foo\" }")
+            _ = try JPSJsonPatch("{ \"path\": \"/a/b/c\", \"value\": \"foo\" }")
             XCTFail("Unreachable code. Should have raised an error.")
-        } catch JPSJsonPatch.JPSJsonPatchInitialisationError.InvalidPatchFormat(let message) {
+        } catch JPSJsonPatch.JPSJsonPatchInitialisationError.invalidPatchFormat(let message) {
             // Expected behaviour.
             XCTAssertNotNil(message)
             XCTAssertEqual(message, JPSConstants.JsonPatch.InitialisationErrorMessages.OpElementNotFound)
@@ -129,9 +128,9 @@ class JPSDocumentStructureTests: XCTestCase {
     
     func testJsonPatchRejectsMissingPath() {
         do {
-            let _ = try JPSJsonPatch("{ \"op\": \"add\", \"value\": \"foo\" }")
+            _ = try JPSJsonPatch("{ \"op\": \"add\", \"value\": \"foo\" }")
             XCTFail("Unreachable code. Should have raised an error.")
-        } catch JPSJsonPatch.JPSJsonPatchInitialisationError.InvalidPatchFormat(let message) {
+        } catch JPSJsonPatch.JPSJsonPatchInitialisationError.invalidPatchFormat(let message) {
             // Expected behaviour.
             XCTAssertNotNil(message)
             XCTAssertEqual(message, JPSConstants.JsonPatch.InitialisationErrorMessages.PathElementNotFound)
@@ -151,9 +150,9 @@ class JPSDocumentStructureTests: XCTestCase {
     
     func testJsonPatchRejectsMissingValue() {
         do {
-            let _ = try JPSJsonPatch("{ \"op\": \"add\", \"path\": \"foo\" }")
+            _ = try JPSJsonPatch("{ \"op\": \"add\", \"path\": \"foo\" }")
             XCTFail("Unreachable code. Should have raised an error.")
-        } catch JPSJsonPatch.JPSJsonPatchInitialisationError.InvalidPatchFormat(let message) {
+        } catch JPSJsonPatch.JPSJsonPatchInitialisationError.invalidPatchFormat(let message) {
             // Expected behaviour.
             XCTAssertNotNil(message)
             XCTAssertEqual(message, "Could not find 'value' element.")
@@ -164,9 +163,9 @@ class JPSDocumentStructureTests: XCTestCase {
     
     func testJsonPatchRejectsEmptyArray() {
         do {
-            let _ = try JPSJsonPatch("[]")
+            _ = try JPSJsonPatch("[]")
             XCTFail("Unreachable code. Should have raised an error.")
-        } catch JPSJsonPatch.JPSJsonPatchInitialisationError.InvalidPatchFormat(let message) {
+        } catch JPSJsonPatch.JPSJsonPatchInitialisationError.invalidPatchFormat(let message) {
             // Expected behaviour.
             XCTAssertNotNil(message)
             XCTAssertEqual(message, "Patch array does not contain elements.")
@@ -191,27 +190,27 @@ class JPSDocumentStructureTests: XCTestCase {
         XCTAssertEqual(jsonPatch.operations.count, 6)
         XCTAssertTrue((jsonPatch.operations[0] as Any) is JPSOperation)
         let operation0 = jsonPatch.operations[0]
-        XCTAssertEqual(operation0.type, JPSOperation.JPSOperationType.Test)
+        XCTAssertEqual(operation0.type, JPSOperation.JPSOperationType.test)
         XCTAssertTrue((jsonPatch.operations[1] as Any) is JPSOperation)
         let operation1 = jsonPatch.operations[1]
-        XCTAssertEqual(operation1.type, JPSOperation.JPSOperationType.Remove)
+        XCTAssertEqual(operation1.type, JPSOperation.JPSOperationType.remove)
         XCTAssertTrue((jsonPatch.operations[2] as Any) is JPSOperation)
         let operation2 = jsonPatch.operations[2]
-        XCTAssertEqual(operation2.type, JPSOperation.JPSOperationType.Add)
+        XCTAssertEqual(operation2.type, JPSOperation.JPSOperationType.add)
         XCTAssertTrue((jsonPatch.operations[3] as Any) is JPSOperation)
         let operation3 = jsonPatch.operations[3]
-        XCTAssertEqual(operation3.type, JPSOperation.JPSOperationType.Replace)
+        XCTAssertEqual(operation3.type, JPSOperation.JPSOperationType.replace)
         XCTAssertTrue((jsonPatch.operations[4] as Any) is JPSOperation)
         let operation4 = jsonPatch.operations[4]
-        XCTAssertEqual(operation4.type, JPSOperation.JPSOperationType.Move)
+        XCTAssertEqual(operation4.type, JPSOperation.JPSOperationType.move)
         XCTAssertTrue((jsonPatch.operations[5] as Any) is JPSOperation)
         let operation5 = jsonPatch.operations[5]
-        XCTAssertEqual(operation5.type, JPSOperation.JPSOperationType.Copy)
+        XCTAssertEqual(operation5.type, JPSOperation.JPSOperationType.copy)
     }
     
     func testInvalidJsonGetsRejected() {
         do {
-            let _ = try JPSJsonPatch("{op:foo}")
+            _ = try JPSJsonPatch("{op:foo}")
             XCTFail("Unreachable code. Should have raised an error.")
         } catch {
             // Expected behaviour.
@@ -220,9 +219,9 @@ class JPSDocumentStructureTests: XCTestCase {
     
     func testInvalidOperationsAreRejected() {
         do {
-            let _ = try JPSJsonPatch("{\"op\" : \"foo\", \"path\" : \"/a/b\"}")
+            _ = try JPSJsonPatch("{\"op\" : \"foo\", \"path\" : \"/a/b\"}")
             XCTFail("Unreachable code. Should have raised an error.")
-        } catch JPSJsonPatch.JPSJsonPatchInitialisationError.InvalidPatchFormat(let message) {
+        } catch JPSJsonPatch.JPSJsonPatchInitialisationError.invalidPatchFormat(let message) {
             // Expected behaviour.
             XCTAssertNotNil(message)
             XCTAssertEqual(message, "Operation is invalid.")
@@ -235,9 +234,9 @@ class JPSDocumentStructureTests: XCTestCase {
     // Multiple tests necessary here
     func testIfPathContainsValidJsonPointer() {
         do {
-            let _ = try JPSJsonPatch("{\"op\" : \"add\", \"path\" : \"foo\" , \"value\" : \"foo\"}")
+            _ = try JPSJsonPatch("{\"op\" : \"add\", \"path\" : \"foo\" , \"value\" : \"foo\"}")
             XCTFail("Unreachable code. Should have raised an error.")
-        } catch JPSJsonPointerError.ValueDoesNotContainDelimiter {
+        } catch JPSJsonPointerError.valueDoesNotContainDelimiter {
             // Expected behaviour.
         } catch {
             XCTFail("Unexpected error.")
@@ -252,7 +251,7 @@ class JPSDocumentStructureTests: XCTestCase {
         XCTAssertEqual(jsonPatch.operations.count, 1)
         XCTAssertTrue((jsonPatch.operations[0] as Any) is JPSOperation)
         let operation0 = jsonPatch.operations[0]
-        XCTAssertEqual(operation0.type, JPSOperation.JPSOperationType.Test)
+        XCTAssertEqual(operation0.type, JPSOperation.JPSOperationType.test)
     }
     
     func testIfElementsNotNecessaryForOperationAreIgnored() {
@@ -263,7 +262,7 @@ class JPSDocumentStructureTests: XCTestCase {
         XCTAssertEqual(jsonPatch.operations.count, 1)
         XCTAssertTrue((jsonPatch.operations[0] as Any) is JPSOperation)
         let operation0 = jsonPatch.operations[0]
-        XCTAssertEqual(operation0.type, JPSOperation.JPSOperationType.Remove)
+        XCTAssertEqual(operation0.type, JPSOperation.JPSOperationType.remove)
     }
     
     func testIfReorderedMembersOfOneOperationLeadToSameResult() {
@@ -275,7 +274,7 @@ class JPSDocumentStructureTests: XCTestCase {
         XCTAssertEqual(jsonPatch0.operations.count, 1)
         XCTAssertTrue((jsonPatch0.operations[0] as Any) is JPSOperation)
         let operation0 = jsonPatch0.operations[0]
-        XCTAssertEqual(operation0.type, JPSOperation.JPSOperationType.Add)
+        XCTAssertEqual(operation0.type, JPSOperation.JPSOperationType.add)
         
         let patch1 = "{ \"path\": \"/a/b/c\", \"op\": \"add\", \"value\": \"foo\" }"
         let jsonPatch1 = try! JPSJsonPatch(patch1)
@@ -284,7 +283,7 @@ class JPSDocumentStructureTests: XCTestCase {
         XCTAssertEqual(jsonPatch1.operations.count, 1)
         XCTAssertTrue((jsonPatch1.operations[0] as Any) is JPSOperation)
         let operation1 = jsonPatch1.operations[0]
-        XCTAssertEqual(operation1.type, JPSOperation.JPSOperationType.Add)
+        XCTAssertEqual(operation1.type, JPSOperation.JPSOperationType.add)
         
         let patch2 = "{ \"value\": \"foo\", \"path\": \"/a/b/c\", \"op\": \"add\" }"
         let jsonPatch2 = try! JPSJsonPatch(patch2)
@@ -293,7 +292,7 @@ class JPSDocumentStructureTests: XCTestCase {
         XCTAssertEqual(jsonPatch2.operations.count, 1)
         XCTAssertTrue((jsonPatch2.operations[0] as Any) is JPSOperation)
         let operation2 = jsonPatch2.operations[0]
-        XCTAssertEqual(operation2.type, JPSOperation.JPSOperationType.Add)
+        XCTAssertEqual(operation2.type, JPSOperation.JPSOperationType.add)
         
         XCTAssertTrue(jsonPatch0 == jsonPatch1)
         XCTAssertTrue(jsonPatch0 == jsonPatch2)
