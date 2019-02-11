@@ -20,6 +20,20 @@
                ReferencedContainer = "container:JsonPatchSwift.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4274FED32211D34B00D66599"
+               BuildableName = "JsonPatchSwiftUnitTests.xctest"
+               BlueprintName = "JsonPatchSwiftUnitTests"
+               ReferencedContainer = "container:JsonPatchSwift.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -32,9 +46,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2FAD257F1C161A66006760CE"
-               BuildableName = "JsonPatchSwiftTests.xctest"
-               BlueprintName = "JsonPatchSwiftTests"
+               BlueprintIdentifier = "4274FED32211D34B00D66599"
+               BuildableName = "JsonPatchSwiftUnitTests.xctest"
+               BlueprintName = "JsonPatchSwiftUnitTests"
                ReferencedContainer = "container:JsonPatchSwift.xcodeproj">
             </BuildableReference>
          </TestableReference>

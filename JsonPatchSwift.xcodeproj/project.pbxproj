@@ -12,7 +12,6 @@
 		2F2FEDDA1C16E68C00D7630F /* JPSJsonPatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2FEDD91C16E68C00D7630F /* JPSJsonPatch.swift */; };
 		2F9BB70D1C63B80900EB7127 /* JPSJsonPatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9BB70C1C63B80900EB7127 /* JPSJsonPatcher.swift */; };
 		2FAD257A1C161A66006760CE /* JsonPatchSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FAD25791C161A66006760CE /* JsonPatchSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2FAD25811C161A66006760CE /* JsonPatchSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FAD25761C161A66006760CE /* JsonPatchSwift.framework */; };
 		2FECC0DA1C3C1B9D00BDE626 /* JPSJsonPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FECC0D91C3C1B9D00BDE626 /* JPSJsonPointer.swift */; };
 		4274FED72211D34B00D66599 /* JsonPatchSwiftUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4274FED62211D34B00D66599 /* JsonPatchSwiftUnitTests.swift */; };
 		4274FED92211D34B00D66599 /* JsonPatchSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FAD25761C161A66006760CE /* JsonPatchSwift.framework */; };
@@ -29,13 +28,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2FAD25821C161A66006760CE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2FAD256D1C161A65006760CE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2FAD25751C161A66006760CE;
-			remoteInfo = JsonPatchSwift;
-		};
 		4274FEDA2211D34B00D66599 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2FAD256D1C161A65006760CE /* Project object */;
@@ -56,8 +48,6 @@
 		2FAD25761C161A66006760CE /* JsonPatchSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JsonPatchSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FAD25791C161A66006760CE /* JsonPatchSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsonPatchSwift.h; sourceTree = "<group>"; };
 		2FAD257B1C161A66006760CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2FAD25801C161A66006760CE /* JsonPatchSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JsonPatchSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2FAD25871C161A66006760CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FECC0D91C3C1B9D00BDE626 /* JPSJsonPointer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JPSJsonPointer.swift; sourceTree = "<group>"; };
 		2FECC0DB1C3C1BF400BDE626 /* JPSJsonPointerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JPSJsonPointerTests.swift; sourceTree = "<group>"; };
 		4274FED42211D34B00D66599 /* JsonPatchSwiftUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JsonPatchSwiftUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,14 +71,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2FAD257D1C161A66006760CE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2FAD25811C161A66006760CE /* JsonPatchSwift.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		4274FED12211D34B00D66599 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -104,7 +86,6 @@
 			isa = PBXGroup;
 			children = (
 				2FAD25781C161A66006760CE /* JsonPatchSwift */,
-				2FAD25841C161A66006760CE /* JsonPatchSwiftTests */,
 				4274FED52211D34B00D66599 /* JsonPatchSwiftUnitTests */,
 				2FAD25771C161A66006760CE /* Products */,
 				791CD0792246FDA7DE86173F /* Frameworks */,
@@ -115,7 +96,6 @@
 			isa = PBXGroup;
 			children = (
 				2FAD25761C161A66006760CE /* JsonPatchSwift.framework */,
-				2FAD25801C161A66006760CE /* JsonPatchSwiftTests.xctest */,
 				4274FED42211D34B00D66599 /* JsonPatchSwiftUnitTests.xctest */,
 			);
 			name = Products;
@@ -133,14 +113,6 @@
 				2FAD257B1C161A66006760CE /* Info.plist */,
 			);
 			path = JsonPatchSwift;
-			sourceTree = "<group>";
-		};
-		2FAD25841C161A66006760CE /* JsonPatchSwiftTests */ = {
-			isa = PBXGroup;
-			children = (
-				2FAD25871C161A66006760CE /* Info.plist */,
-			);
-			path = JsonPatchSwiftTests;
 			sourceTree = "<group>";
 		};
 		4274FED52211D34B00D66599 /* JsonPatchSwiftUnitTests */ = {
@@ -204,26 +176,6 @@
 			productReference = 2FAD25761C161A66006760CE /* JsonPatchSwift.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		2FAD257F1C161A66006760CE /* JsonPatchSwiftTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2FAD258D1C161A66006760CE /* Build configuration list for PBXNativeTarget "JsonPatchSwiftTests" */;
-			buildPhases = (
-				2FAD257C1C161A66006760CE /* Sources */,
-				2FAD257D1C161A66006760CE /* Frameworks */,
-				2FAD257E1C161A66006760CE /* Resources */,
-				2F2FEDDC1C16EA8B00D7630F /* ShellScript */,
-				429E307A2211D1AD00495F0D /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2FAD25831C161A66006760CE /* PBXTargetDependency */,
-			);
-			name = JsonPatchSwiftTests;
-			productName = JsonPatchSwiftTests;
-			productReference = 2FAD25801C161A66006760CE /* JsonPatchSwiftTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		4274FED32211D34B00D66599 /* JsonPatchSwiftUnitTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4274FEDC2211D34B00D66599 /* Build configuration list for PBXNativeTarget "JsonPatchSwiftUnitTests" */;
@@ -255,13 +207,7 @@
 					2FAD25751C161A66006760CE = {
 						CreatedOnToolsVersion = 7.1.1;
 						DevelopmentTeam = B77WPD77G9;
-						LastSwiftMigration = 0830;
-						ProvisioningStyle = Automatic;
-					};
-					2FAD257F1C161A66006760CE = {
-						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = B77WPD77G9;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 					4274FED32211D34B00D66599 = {
@@ -284,7 +230,6 @@
 			projectRoot = "";
 			targets = (
 				2FAD25751C161A66006760CE /* JsonPatchSwift */,
-				2FAD257F1C161A66006760CE /* JsonPatchSwiftTests */,
 				4274FED32211D34B00D66599 /* JsonPatchSwiftUnitTests */,
 			);
 		};
@@ -292,13 +237,6 @@
 
 /* Begin PBXResourcesBuildPhase section */
 		2FAD25741C161A66006760CE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2FAD257E1C161A66006760CE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -328,39 +266,7 @@
 			shellPath = /bin/sh;
 			shellScript = "if not which swiftlint >/dev/null; then\n  if not which brew >/dev/null; then\n    echo \"SwiftLint does not exist\"\n    exit 1\n  fi\n  brew install swiftlint\nfi\n\ncd JsonPatchSwift\nswiftlint\ncd ../JsonPatchSwiftTests\nswiftlint\n";
 		};
-		2F2FEDDC1C16EA8B00D7630F /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  cd JsonPatchSwiftTests\n  swiftlint\nelse\n  echo \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
 		429E30792211C07300495F0D /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftyJSON.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
-		};
-		429E307A2211D1AD00495F0D /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -394,13 +300,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2FAD257C1C161A66006760CE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		4274FED02211D34B00D66599 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -421,11 +320,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2FAD25831C161A66006760CE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2FAD25751C161A66006760CE /* JsonPatchSwift */;
-			targetProxy = 2FAD25821C161A66006760CE /* PBXContainerItemProxy */;
-		};
 		4274FEDB2211D34B00D66599 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2FAD25751C161A66006760CE /* JsonPatchSwift */;
@@ -567,7 +461,8 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 				WARNING_CFLAGS = "-Weverything";
 			};
 			name = Debug;
@@ -594,41 +489,9 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 				WARNING_CFLAGS = "-Weverything";
-			};
-			name = Release;
-		};
-		2FAD258E1C161A66006760CE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B77WPD77G9;
-				INFOPLIST_FILE = JsonPatchSwiftTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dominicfrei.JsonPatchSwiftTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		2FAD258F1C161A66006760CE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B77WPD77G9;
-				INFOPLIST_FILE = JsonPatchSwiftTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dominicfrei.JsonPatchSwiftTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -644,6 +507,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B77WPD77G9;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Carthage/Build/iOS/**";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = JsonPatchSwiftUnitTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
@@ -670,6 +534,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B77WPD77G9;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Carthage/Build/iOS/**";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = JsonPatchSwiftUnitTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
@@ -700,15 +565,6 @@
 			buildConfigurations = (
 				2FAD258B1C161A66006760CE /* Debug */,
 				2FAD258C1C161A66006760CE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2FAD258D1C161A66006760CE /* Build configuration list for PBXNativeTarget "JsonPatchSwiftTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2FAD258E1C161A66006760CE /* Debug */,
-				2FAD258F1C161A66006760CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
