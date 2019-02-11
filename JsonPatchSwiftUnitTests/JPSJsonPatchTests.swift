@@ -15,31 +15,31 @@ import SwiftyJSON
 class JPSJsonPatchTests: XCTestCase {
     
     func testMultipleOperations1() {
-        let json = JSON(data: " { \"foo\" : \"bar\" } ".dataUsingEncoding(String.Encoding.utf8)!)
+        let json = try! JSON(data: " { \"foo\" : \"bar\" } ".data(using: String.Encoding.utf8)!)
         let patch = "["
             + "{ \"op\": \"remove\", \"path\": \"/foo\" },"
             + "{ \"op\": \"add\", \"path\": \"/bar\", \"value\": \"foo\" },"
             + "]"
         let jsonPatch = try! JPSJsonPatch(patch)
         let resultingJson = try! JPSJsonPatcher.applyPatch(jsonPatch, toJson: json)
-        let expectedJson = JSON(data: "{ \"bar\" : \"foo\" }".dataUsingEncoding(String.Encoding.utf8)!)
+        let expectedJson = try! JSON(data: "{ \"bar\" : \"foo\" }".data(using: String.Encoding.utf8)!)
         XCTAssertEqual(resultingJson, expectedJson)
     }
     
     func testMultipleOperations2() {
-        let json = JSON(data: " { \"foo\" : \"bar\" } ".dataUsingEncoding(String.Encoding.utf8)!)
+        let json = try! JSON(data: " { \"foo\" : \"bar\" } ".data(using: String.Encoding.utf8)!)
         let patch = "["
             + "{ \"op\": \"add\", \"path\": \"/bar\", \"value\": \"foo\" },"
             + "{ \"op\": \"remove\", \"path\": \"/foo\" },"
             + "]"
         let jsonPatch = try! JPSJsonPatch(patch)
         let resultingJson = try! JPSJsonPatcher.applyPatch(jsonPatch, toJson: json)
-        let expectedJson = JSON(data: "{ \"bar\" : \"foo\" }".dataUsingEncoding(String.Encoding.utf8)!)
+        let expectedJson = try! JSON(data: "{ \"bar\" : \"foo\" }".data(using: String.Encoding.utf8)!)
         XCTAssertEqual(resultingJson, expectedJson)
     }
     
     func testMultipleOperations3() {
-        let json = JSON(data: " { \"foo\" : \"bar\" } ".dataUsingEncoding(String.Encoding.utf8)!)
+        let json = try! JSON(data: " { \"foo\" : \"bar\" } ".data(using: String.Encoding.utf8)!)
         let patch = "["
             + "{ \"op\": \"remove\", \"path\": \"/foo\" },"
             + "{ \"op\": \"add\", \"path\": \"/bar\", \"value\": \"foo\" },"
@@ -51,13 +51,13 @@ class JPSJsonPatchTests: XCTestCase {
             + "]"
         let jsonPatch = try! JPSJsonPatch(patch)
         let resultingJson = try! JPSJsonPatcher.applyPatch(jsonPatch, toJson: json)
-        let expectedJson = JSON(data: "{ \"bla\" : \"blub\" }".dataUsingEncoding(String.Encoding.utf8)!)
+        let expectedJson = try! JSON(data: "{ \"bla\" : \"blub\" }".data(using: String.Encoding.utf8)!)
         XCTAssertEqual(resultingJson, expectedJson)
     }
 
     func testInitWithSwiftyJSON() {
         let jsonPatchString = try! JPSJsonPatch("[{ \"op\": \"test\", \"path\": \"/a/b/c\", \"value\": \"foo\" }]")
-        let jsonPatchSwifty = try! JPSJsonPatch(JSON(data: " [{ \"op\": \"test\", \"path\": \"/a/b/c\", \"value\": \"foo\" }] ".dataUsingEncoding(String.Encoding.utf8)!))
+        let jsonPatchSwifty = try! JPSJsonPatch(JSON(data: " [{ \"op\": \"test\", \"path\": \"/a/b/c\", \"value\": \"foo\" }] ".data(using: String.Encoding.utf8)!))
         XCTAssertTrue(jsonPatchString == jsonPatchSwifty)
     }
 }

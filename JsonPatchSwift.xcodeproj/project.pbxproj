@@ -7,27 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2F07C3B81C18749000314FF1 /* JPSAddOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F07C3B71C18749000314FF1 /* JPSAddOperationTests.swift */; };
 		2F07C3BA1C18862100314FF1 /* JPSOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F07C3B91C18862100314FF1 /* JPSOperation.swift */; };
 		2F26B10E1C5F9F52001EFA68 /* JPSContants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F26B10D1C5F9F52001EFA68 /* JPSContants.swift */; };
-		2F2FEDD81C1626DD00D7630F /* JPSDocumentStructureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2FEDD71C1626DD00D7630F /* JPSDocumentStructureTests.swift */; };
 		2F2FEDDA1C16E68C00D7630F /* JPSJsonPatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2FEDD91C16E68C00D7630F /* JPSJsonPatch.swift */; };
 		2F9BB70D1C63B80900EB7127 /* JPSJsonPatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9BB70C1C63B80900EB7127 /* JPSJsonPatcher.swift */; };
-		2F9BB70F1C67DD6500EB7127 /* JPSJsonPatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9BB70E1C67DD6500EB7127 /* JPSJsonPatchTests.swift */; };
 		2FAD257A1C161A66006760CE /* JsonPatchSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FAD25791C161A66006760CE /* JsonPatchSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2FAD25811C161A66006760CE /* JsonPatchSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FAD25761C161A66006760CE /* JsonPatchSwift.framework */; };
 		2FECC0DA1C3C1B9D00BDE626 /* JPSJsonPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FECC0D91C3C1B9D00BDE626 /* JPSJsonPointer.swift */; };
-		2FECC0DC1C3C1BF400BDE626 /* JPSJsonPointerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FECC0DB1C3C1BF400BDE626 /* JPSJsonPointerTests.swift */; };
+		4274FED72211D34B00D66599 /* JsonPatchSwiftUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4274FED62211D34B00D66599 /* JsonPatchSwiftUnitTests.swift */; };
+		4274FED92211D34B00D66599 /* JsonPatchSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FAD25761C161A66006760CE /* JsonPatchSwift.framework */; };
+		4274FEDF2211D36400D66599 /* JPSJsonPatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9BB70E1C67DD6500EB7127 /* JPSJsonPatchTests.swift */; };
+		4274FEE02211D36400D66599 /* JPSDocumentStructureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2FEDD71C1626DD00D7630F /* JPSDocumentStructureTests.swift */; };
+		4274FEE12211D36400D66599 /* JPSCopyOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F55F63F1C611AFD00B168D0 /* JPSCopyOperationTests.swift */; };
+		4274FEE22211D36400D66599 /* JPSTestOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC2943A1C63A0A00083DF3E /* JPSTestOperationTests.swift */; };
+		4274FEE32211D36400D66599 /* JPSMoveOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F55F63B1C60E5F400B168D0 /* JPSMoveOperationTests.swift */; };
+		4274FEE42211D36400D66599 /* JPSJsonPointerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FECC0DB1C3C1BF400BDE626 /* JPSJsonPointerTests.swift */; };
+		4274FEE52211D36400D66599 /* JPSAddOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F07C3B71C18749000314FF1 /* JPSAddOperationTests.swift */; };
+		4274FEE62211D36400D66599 /* JPSReplaceOperationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F55F63D1C6118CD00B168D0 /* JPSReplaceOperationTest.swift */; };
+		4274FEE72211D36400D66599 /* JPSRemoveOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0240E91C6037B0003BBAE8 /* JPSRemoveOperationTests.swift */; };
 		429E30782211C01A00495F0D /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429E30772211C01A00495F0D /* SwiftyJSON.framework */; };
-		9F0240EA1C6037B0003BBAE8 /* JPSRemoveOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0240E91C6037B0003BBAE8 /* JPSRemoveOperationTests.swift */; };
-		9F55F63C1C60E5F400B168D0 /* JPSMoveOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F55F63B1C60E5F400B168D0 /* JPSMoveOperationTests.swift */; };
-		9F55F63E1C6118CD00B168D0 /* JPSReplaceOperationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F55F63D1C6118CD00B168D0 /* JPSReplaceOperationTest.swift */; };
-		9F55F6401C611AFD00B168D0 /* JPSCopyOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F55F63F1C611AFD00B168D0 /* JPSCopyOperationTests.swift */; };
-		9FC2943B1C63A0A00083DF3E /* JPSTestOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC2943A1C63A0A00083DF3E /* JPSTestOperationTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		2FAD25821C161A66006760CE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2FAD256D1C161A65006760CE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2FAD25751C161A66006760CE;
+			remoteInfo = JsonPatchSwift;
+		};
+		4274FEDA2211D34B00D66599 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2FAD256D1C161A65006760CE /* Project object */;
 			proxyType = 1;
@@ -51,6 +60,9 @@
 		2FAD25871C161A66006760CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FECC0D91C3C1B9D00BDE626 /* JPSJsonPointer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JPSJsonPointer.swift; sourceTree = "<group>"; };
 		2FECC0DB1C3C1BF400BDE626 /* JPSJsonPointerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JPSJsonPointerTests.swift; sourceTree = "<group>"; };
+		4274FED42211D34B00D66599 /* JsonPatchSwiftUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JsonPatchSwiftUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4274FED62211D34B00D66599 /* JsonPatchSwiftUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonPatchSwiftUnitTests.swift; sourceTree = "<group>"; };
+		4274FED82211D34B00D66599 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		429E30772211C01A00495F0D /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		9F0240E91C6037B0003BBAE8 /* JPSRemoveOperationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JPSRemoveOperationTests.swift; sourceTree = "<group>"; };
 		9F55F63B1C60E5F400B168D0 /* JPSMoveOperationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JPSMoveOperationTests.swift; sourceTree = "<group>"; };
@@ -77,6 +89,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4274FED12211D34B00D66599 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4274FED92211D34B00D66599 /* JsonPatchSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -85,6 +105,7 @@
 			children = (
 				2FAD25781C161A66006760CE /* JsonPatchSwift */,
 				2FAD25841C161A66006760CE /* JsonPatchSwiftTests */,
+				4274FED52211D34B00D66599 /* JsonPatchSwiftUnitTests */,
 				2FAD25771C161A66006760CE /* Products */,
 				791CD0792246FDA7DE86173F /* Frameworks */,
 			);
@@ -95,6 +116,7 @@
 			children = (
 				2FAD25761C161A66006760CE /* JsonPatchSwift.framework */,
 				2FAD25801C161A66006760CE /* JsonPatchSwiftTests.xctest */,
+				4274FED42211D34B00D66599 /* JsonPatchSwiftUnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -116,6 +138,14 @@
 		2FAD25841C161A66006760CE /* JsonPatchSwiftTests */ = {
 			isa = PBXGroup;
 			children = (
+				2FAD25871C161A66006760CE /* Info.plist */,
+			);
+			path = JsonPatchSwiftTests;
+			sourceTree = "<group>";
+		};
+		4274FED52211D34B00D66599 /* JsonPatchSwiftUnitTests */ = {
+			isa = PBXGroup;
+			children = (
 				2F2FEDD71C1626DD00D7630F /* JPSDocumentStructureTests.swift */,
 				2F9BB70E1C67DD6500EB7127 /* JPSJsonPatchTests.swift */,
 				2FECC0DB1C3C1BF400BDE626 /* JPSJsonPointerTests.swift */,
@@ -125,9 +155,10 @@
 				9F55F63B1C60E5F400B168D0 /* JPSMoveOperationTests.swift */,
 				9F55F63F1C611AFD00B168D0 /* JPSCopyOperationTests.swift */,
 				9FC2943A1C63A0A00083DF3E /* JPSTestOperationTests.swift */,
-				2FAD25871C161A66006760CE /* Info.plist */,
+				4274FED62211D34B00D66599 /* JsonPatchSwiftUnitTests.swift */,
+				4274FED82211D34B00D66599 /* Info.plist */,
 			);
-			path = JsonPatchSwiftTests;
+			path = JsonPatchSwiftUnitTests;
 			sourceTree = "<group>";
 		};
 		791CD0792246FDA7DE86173F /* Frameworks */ = {
@@ -181,6 +212,7 @@
 				2FAD257D1C161A66006760CE /* Frameworks */,
 				2FAD257E1C161A66006760CE /* Resources */,
 				2F2FEDDC1C16EA8B00D7630F /* ShellScript */,
+				429E307A2211D1AD00495F0D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -192,23 +224,50 @@
 			productReference = 2FAD25801C161A66006760CE /* JsonPatchSwiftTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		4274FED32211D34B00D66599 /* JsonPatchSwiftUnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4274FEDC2211D34B00D66599 /* Build configuration list for PBXNativeTarget "JsonPatchSwiftUnitTests" */;
+			buildPhases = (
+				4274FED02211D34B00D66599 /* Sources */,
+				4274FED12211D34B00D66599 /* Frameworks */,
+				4274FED22211D34B00D66599 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4274FEDB2211D34B00D66599 /* PBXTargetDependency */,
+			);
+			name = JsonPatchSwiftUnitTests;
+			productName = JsonPatchSwiftUnitTests;
+			productReference = 4274FED42211D34B00D66599 /* JsonPatchSwiftUnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		2FAD256D1C161A65006760CE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0710;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Dominic Frei";
 				TargetAttributes = {
 					2FAD25751C161A66006760CE = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = B77WPD77G9;
 						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
 					};
 					2FAD257F1C161A66006760CE = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = B77WPD77G9;
 						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
+					};
+					4274FED32211D34B00D66599 = {
+						CreatedOnToolsVersion = 10.1;
+						DevelopmentTeam = B77WPD77G9;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -226,6 +285,7 @@
 			targets = (
 				2FAD25751C161A66006760CE /* JsonPatchSwift */,
 				2FAD257F1C161A66006760CE /* JsonPatchSwiftTests */,
+				4274FED32211D34B00D66599 /* JsonPatchSwiftUnitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -239,6 +299,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		2FAD257E1C161A66006760CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4274FED22211D34B00D66599 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -272,9 +339,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  cd JsonPatchSwiftTests\n  swiftlint\nelse\n  echo \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "if which swiftlint >/dev/null; then\n  cd JsonPatchSwiftTests\n  swiftlint\nelse\n  echo \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		429E30792211C07300495F0D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
+		};
+		429E307A2211D1AD00495F0D /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -312,15 +398,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F55F63E1C6118CD00B168D0 /* JPSReplaceOperationTest.swift in Sources */,
-				9F55F63C1C60E5F400B168D0 /* JPSMoveOperationTests.swift in Sources */,
-				2F9BB70F1C67DD6500EB7127 /* JPSJsonPatchTests.swift in Sources */,
-				9F55F6401C611AFD00B168D0 /* JPSCopyOperationTests.swift in Sources */,
-				2FECC0DC1C3C1BF400BDE626 /* JPSJsonPointerTests.swift in Sources */,
-				2F2FEDD81C1626DD00D7630F /* JPSDocumentStructureTests.swift in Sources */,
-				2F07C3B81C18749000314FF1 /* JPSAddOperationTests.swift in Sources */,
-				9F0240EA1C6037B0003BBAE8 /* JPSRemoveOperationTests.swift in Sources */,
-				9FC2943B1C63A0A00083DF3E /* JPSTestOperationTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4274FED02211D34B00D66599 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4274FEE62211D36400D66599 /* JPSReplaceOperationTest.swift in Sources */,
+				4274FEE32211D36400D66599 /* JPSMoveOperationTests.swift in Sources */,
+				4274FEE02211D36400D66599 /* JPSDocumentStructureTests.swift in Sources */,
+				4274FEDF2211D36400D66599 /* JPSJsonPatchTests.swift in Sources */,
+				4274FEE12211D36400D66599 /* JPSCopyOperationTests.swift in Sources */,
+				4274FEE72211D36400D66599 /* JPSRemoveOperationTests.swift in Sources */,
+				4274FEE22211D36400D66599 /* JPSTestOperationTests.swift in Sources */,
+				4274FEE42211D36400D66599 /* JPSJsonPointerTests.swift in Sources */,
+				4274FED72211D34B00D66599 /* JsonPatchSwiftUnitTests.swift in Sources */,
+				4274FEE52211D36400D66599 /* JPSAddOperationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +425,11 @@
 			isa = PBXTargetDependency;
 			target = 2FAD25751C161A66006760CE /* JsonPatchSwift */;
 			targetProxy = 2FAD25821C161A66006760CE /* PBXContainerItemProxy */;
+		};
+		4274FEDB2211D34B00D66599 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2FAD25751C161A66006760CE /* JsonPatchSwift */;
+			targetProxy = 4274FEDA2211D34B00D66599 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -449,8 +548,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = B77WPD77G9;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -463,6 +564,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dominicfrei.JsonPatchSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -474,8 +576,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = B77WPD77G9;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -488,6 +592,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dominicfrei.JsonPatchSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 				WARNING_CFLAGS = "-Weverything";
@@ -498,10 +603,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B77WPD77G9;
 				INFOPLIST_FILE = JsonPatchSwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dominicfrei.JsonPatchSwiftTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -511,11 +620,66 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B77WPD77G9;
 				INFOPLIST_FILE = JsonPatchSwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dominicfrei.JsonPatchSwiftTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		4274FEDD2211D34B00D66599 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B77WPD77G9;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = JsonPatchSwiftUnitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = io.thrivenow.JsonPatchSwiftUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4274FEDE2211D34B00D66599 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B77WPD77G9;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = JsonPatchSwiftUnitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = io.thrivenow.JsonPatchSwiftUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -545,6 +709,15 @@
 			buildConfigurations = (
 				2FAD258E1C161A66006760CE /* Debug */,
 				2FAD258F1C161A66006760CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4274FEDC2211D34B00D66599 /* Build configuration list for PBXNativeTarget "JsonPatchSwiftUnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4274FEDD2211D34B00D66599 /* Debug */,
+				4274FEDE2211D34B00D66599 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
