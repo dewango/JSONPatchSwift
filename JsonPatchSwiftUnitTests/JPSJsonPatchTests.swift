@@ -13,34 +13,61 @@ import XCTest
 import SwiftyJSON
 
 class JPSJsonPatchTests: XCTestCase {
-    
+
     func testMultipleOperations1() {
-        let json = try! JSON(data: " { \"foo\" : \"bar\" } ".data(using: String.Encoding.utf8)!)
-        let patch = "["
+        guard let json: JSON = try? JSON(data: " { \"foo\" : \"bar\" } ".data(using: String.Encoding.utf8)!) else {
+            XCTFail("json parse error")
+            return
+        }
+        let patch: String = "["
             + "{ \"op\": \"remove\", \"path\": \"/foo\" },"
             + "{ \"op\": \"add\", \"path\": \"/bar\", \"value\": \"foo\" },"
             + "]"
-        let jsonPatch = try! JPSJsonPatch(patch)
-        let resultingJson = try! JPSJsonPatcher.applyPatch(jsonPatch, toJson: json)
-        let expectedJson = try! JSON(data: "{ \"bar\" : \"foo\" }".data(using: String.Encoding.utf8)!)
+        guard let jsonPatch = try? JPSJsonPatch(patch) else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let resultingJson = try? JPSJsonPatcher.applyPatch(jsonPatch, toJson: json) else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let expectedJson = try? JSON(data: "{ \"bar\" : \"foo\" }".data(using: String.Encoding.utf8)!) else {
+            XCTFail("json parse error")
+            return
+        }
         XCTAssertEqual(resultingJson, expectedJson)
     }
-    
+
     func testMultipleOperations2() {
-        let json = try! JSON(data: " { \"foo\" : \"bar\" } ".data(using: String.Encoding.utf8)!)
+        guard let json = try? JSON(data: " { \"foo\" : \"bar\" } ".data(using: String.Encoding.utf8)!) else {
+            XCTFail("json parse error")
+            return
+        }
         let patch = "["
             + "{ \"op\": \"add\", \"path\": \"/bar\", \"value\": \"foo\" },"
             + "{ \"op\": \"remove\", \"path\": \"/foo\" },"
             + "]"
-        let jsonPatch = try! JPSJsonPatch(patch)
-        let resultingJson = try! JPSJsonPatcher.applyPatch(jsonPatch, toJson: json)
-        let expectedJson = try! JSON(data: "{ \"bar\" : \"foo\" }".data(using: String.Encoding.utf8)!)
+        guard let jsonPatch = try? JPSJsonPatch(patch) else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let resultingJson = try? JPSJsonPatcher.applyPatch(jsonPatch, toJson: json) else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let expectedJson = try? JSON(data: "{ \"bar\" : \"foo\" }".data(using: String.Encoding.utf8)!) else {
+            XCTFail("json parse error")
+            return
+        }
         XCTAssertEqual(resultingJson, expectedJson)
     }
-    
+
     func testMultipleOperations3() {
-        let json = try! JSON(data: " { \"foo\" : \"bar\" } ".data(using: String.Encoding.utf8)!)
-        let patch = "["
+        guard let json = try? JSON(data: " { \"foo\" : \"bar\" } ".data(using: String.Encoding.utf8)!) else {
+            XCTFail("json parse error")
+            return
+        }
+        let patch: String = "["
             + "{ \"op\": \"remove\", \"path\": \"/foo\" },"
             + "{ \"op\": \"add\", \"path\": \"/bar\", \"value\": \"foo\" },"
             + "{ \"op\": \"add\", \"path\": \"\", \"value\": { \"bla\" : \"blubb\" }  },"
@@ -49,15 +76,31 @@ class JPSJsonPatchTests: XCTestCase {
             + "{ \"op\": \"copy\", \"path\": \"/blaa\", \"from\": \"/bla\" },"
             + "{ \"op\": \"move\", \"path\": \"/bla\", \"from\": \"/blaa\" },"
             + "]"
-        let jsonPatch = try! JPSJsonPatch(patch)
-        let resultingJson = try! JPSJsonPatcher.applyPatch(jsonPatch, toJson: json)
-        let expectedJson = try! JSON(data: "{ \"bla\" : \"blub\" }".data(using: String.Encoding.utf8)!)
+        guard let jsonPatch: JPSJsonPatch = try? JPSJsonPatch(patch) else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let resultingJson: JSON = try? JPSJsonPatcher.applyPatch(jsonPatch, toJson: json) else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let expectedJson: JSON = try? JSON(data: "{ \"bla\" : \"blub\" }".data(using: String.Encoding.utf8)!) else {
+            XCTFail("json parse error")
+            return
+        }
         XCTAssertEqual(resultingJson, expectedJson)
     }
 
     func testInitWithSwiftyJSON() {
-        let jsonPatchString = try! JPSJsonPatch("[{ \"op\": \"test\", \"path\": \"/a/b/c\", \"value\": \"foo\" }]")
-        let jsonPatchSwifty = try! JPSJsonPatch(JSON(data: " [{ \"op\": \"test\", \"path\": \"/a/b/c\", \"value\": \"foo\" }] ".data(using: String.Encoding.utf8)!))
+        guard let jsonPatchString: JPSJsonPatch = try? JPSJsonPatch("[{ \"op\": \"test\", \"path\": \"/a/b/c\", \"value\": \"foo\" }]") else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let jsonPatchSwifty: JPSJsonPatch = try? JPSJsonPatch(JSON(data: (" [{ \"op\": \"test\", "
+            + "\"path\": \"/a/b/c\", \"value\": \"foo\" }] ").data(using: String.Encoding.utf8)!)) else {
+                XCTFail("json parse error")
+                return
+        }
         XCTAssertTrue(jsonPatchString == jsonPatchSwifty)
     }
 }

@@ -18,88 +18,128 @@ import SwiftyJSON
 // 4.  Operations
 // 4.6. test
 class JPSTestOperationTests: XCTestCase {
-    
+
     func testIfBasicStringCheckReturnsExpectedResult() {
-        let json = try! JSON(data: " { \"foo\" : { \"1\" : \"2\" }} ".data(using: String.Encoding.utf8)!)
-        let jsonPatch = try! JPSJsonPatch("{ \"op\": \"test\", \"path\": \"/foo/1\", \"value\": \"2\" }")
-        let resultingJson = try! JPSJsonPatcher.applyPatch(jsonPatch, toJson: json)
+        guard let json: JSON = try? JSON(data: " { \"foo\" : { \"1\" : \"2\" }} ".data(using: String.Encoding.utf8)!) else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let jsonPatch: JPSJsonPatch = try? JPSJsonPatch("{ \"op\": \"test\", \"path\": \"/foo/1\", \"value\": \"2\" }") else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let resultingJson: JSON = try? JPSJsonPatcher.applyPatch(jsonPatch, toJson: json) else {
+            XCTFail("json parse error")
+            return
+        }
         XCTAssertEqual(resultingJson, json)
     }
 
     func testIfInvalidBasicStringCheckReturnsExpectedResult() {
-        let json = try! JSON(data: " { \"foo\" : { \"1\" : \"2\" }} ".data(using: String.Encoding.utf8)!)
-        let jsonPatch = try! JPSJsonPatch("{ \"op\": \"test\", \"path\": \"/foo/1\", \"value\": \"3\" }")
-        do {
-            let result = try JPSJsonPatcher.applyPatch(jsonPatch, toJson: json)
-            XCTFail(result.rawString()!)
-        } catch JPSJsonPatcher.JPSJsonPatcherApplyError.validationError(message: let message) {
-            // Expected behaviour.
-            XCTAssertNotNil(message)
-        } catch {
-            XCTFail("Unexpected error.")
+        guard let json: JSON = try? JSON(data: " { \"foo\" : { \"1\" : \"2\" }} ".data(using: String.Encoding.utf8)!) else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let jsonPatch: JPSJsonPatch = try? JPSJsonPatch("{ \"op\": \"test\", \"path\": \"/foo/1\", \"value\": \"3\" }") else {
+            XCTFail("json parse error")
+            return
+        }
+        guard (try? JPSJsonPatcher.applyPatch(jsonPatch, toJson: json)) != nil else {
+            XCTFail("json parse error")
+            return
         }
     }
 
     func testIfBasicIntCheckReturnsExpectedResult() {
-        let json = try! JSON(data: " { \"foo\" : { \"1\" : 2 }} ".data(using: String.Encoding.utf8)!)
-        let jsonPatch = try! JPSJsonPatch("{ \"op\": \"test\", \"path\": \"/foo/1\", \"value\": 2 }")
-        let resultingJson = try! JPSJsonPatcher.applyPatch(jsonPatch, toJson: json)
+        guard let json: JSON = try? JSON(data: " { \"foo\" : { \"1\" : 2 }} ".data(using: String.Encoding.utf8)!) else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let jsonPatch: JPSJsonPatch = try? JPSJsonPatch("{ \"op\": \"test\", \"path\": \"/foo/1\", \"value\": 2 }") else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let resultingJson: JSON = try? JPSJsonPatcher.applyPatch(jsonPatch, toJson: json) else {
+            XCTFail("json parse error")
+            return
+        }
         XCTAssertEqual(resultingJson, json)
     }
 
     func testIfInvalidBasicIntCheckReturnsExpectedResult() {
-        let json = try! JSON(data: " { \"foo\" : { \"1\" : 2 }} ".data(using: String.Encoding.utf8)!)
-        let jsonPatch = try! JPSJsonPatch("{ \"op\": \"test\", \"path\": \"/foo/1\", \"value\": 3 }")
-        do {
-            let result = try JPSJsonPatcher.applyPatch(jsonPatch, toJson: json)
-            XCTFail(result.rawString()!)
-        } catch JPSJsonPatcher.JPSJsonPatcherApplyError.validationError(message: let message) {
-            // Expected behaviour.
-            XCTAssertNotNil(message)
-        } catch {
-            XCTFail("Unexpected error.")
+        guard let json: JSON = try? JSON(data: " { \"foo\" : { \"1\" : 2 }} ".data(using: String.Encoding.utf8)!) else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let jsonPatch: JPSJsonPatch = try? JPSJsonPatch("{ \"op\": \"test\", \"path\": \"/foo/1\", \"value\": 3 }") else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let _: JSON = try? JPSJsonPatcher.applyPatch(jsonPatch, toJson: json) else {
+            XCTFail("json parse error")
+            return
         }
     }
 
     func testIfBasicObjectCheckReturnsExpectedResult() {
-        let json = try! JSON(data: " { \"foo\" : { \"1\" : 2 }} ".data(using: String.Encoding.utf8)!)
-        let jsonPatch = try! JPSJsonPatch("{ \"op\": \"test\", \"path\": \"/foo\", \"value\": { \"1\" : 2 } }")
-        let resultingJson = try! JPSJsonPatcher.applyPatch(jsonPatch, toJson: json)
+        guard let json: JSON = try? JSON(data: " { \"foo\" : { \"1\" : 2 }} ".data(using: String.Encoding.utf8)!) else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let jsonPatch: JPSJsonPatch = try? JPSJsonPatch("{ \"op\": \"test\", \"path\": \"/foo\", \"value\": { \"1\" : 2 } }") else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let resultingJson: JSON = try? JPSJsonPatcher.applyPatch(jsonPatch, toJson: json) else {
+            XCTFail("json parse error")
+            return
+        }
         XCTAssertEqual(resultingJson, json)
     }
 
     func testIfInvalidBasicObjectCheckReturnsExpectedResult() {
-        let json = try! JSON(data: " { \"foo\" : { \"1\" : \"2\" }} ".data(using: String.Encoding.utf8)!)
-        let jsonPatch = try! JPSJsonPatch("{ \"op\": \"test\", \"path\": \"/foo\", \"value\": { \"1\" : 3 } }")
-        do {
-            let result = try JPSJsonPatcher.applyPatch(jsonPatch, toJson: json)
-            XCTFail(result.rawString()!)
-        } catch JPSJsonPatcher.JPSJsonPatcherApplyError.validationError(message: let message) {
-            // Expected behaviour.
-            XCTAssertNotNil(message)
-        } catch {
-            XCTFail("Unexpected error.")
+        guard let json: JSON = try? JSON(data: " { \"foo\" : { \"1\" : \"2\" }} ".data(using: String.Encoding.utf8)!) else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let jsonPatch: JPSJsonPatch = try? JPSJsonPatch("{ \"op\": \"test\", \"path\": \"/foo\", \"value\": { \"1\" : 3 } }") else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let _: JSON = try? JPSJsonPatcher.applyPatch(jsonPatch, toJson: json) else {
+            XCTFail("json parse error")
+            return
         }
     }
 
     func testIfBasicArrayCheckReturnsExpectedResult() {
-        let json = try! JSON(data: " { \"foo\" : [1, 2, 3, 4, 5]} ".data(using: String.Encoding.utf8)!)
-        let jsonPatch = try! JPSJsonPatch("{ \"op\": \"test\", \"path\": \"/foo\", \"value\": [1, 2, 3, 4, 5] }")
-        let resultingJson = try! JPSJsonPatcher.applyPatch(jsonPatch, toJson: json)
+        guard let json: JSON = try? JSON(data: " { \"foo\" : [1, 2, 3, 4, 5]} ".data(using: String.Encoding.utf8)!) else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let jsonPatch: JPSJsonPatch = try? JPSJsonPatch("{ \"op\": \"test\", \"path\": \"/foo\", \"value\": [1, 2, 3, 4, 5] }") else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let resultingJson: JSON = try? JPSJsonPatcher.applyPatch(jsonPatch, toJson: json) else {
+            XCTFail("json parse error")
+            return
+        }
         XCTAssertEqual(resultingJson, json)
     }
 
     func testIfInvalidBasicArrayCheckReturnsExpectedResult() {
-        let json = try! JSON(data: " { \"foo\" : [1, 2, 3, 4, 5]} ".data(using: String.Encoding.utf8)!)
-        let jsonPatch = try! JPSJsonPatch("{ \"op\": \"test\", \"path\": \"/foo\", \"value\": [1, 2, 3, 4, 5, 6, 7, 42] }")
-        do {
-            let result = try JPSJsonPatcher.applyPatch(jsonPatch, toJson: json)
-            XCTFail(result.rawString()!)
-        } catch JPSJsonPatcher.JPSJsonPatcherApplyError.validationError(message: let message) {
-            // Expected behaviour.
-            XCTAssertNotNil(message)
-        } catch {
-            XCTFail("Unexpected error.")
+        guard let json: JSON = try? JSON(data: " { \"foo\" : [1, 2, 3, 4, 5]} ".data(using: String.Encoding.utf8)!) else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let jsonPatch: JPSJsonPatch = try? JPSJsonPatch("{ \"op\": \"test\", \"path\": \"/foo\", \"value\": [1, 2, 3, 4, 5, 6, 7, 42] }") else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let _: JSON = try? JPSJsonPatcher.applyPatch(jsonPatch, toJson: json) else {
+            XCTFail("json parse error")
+            return
         }
     }
 }

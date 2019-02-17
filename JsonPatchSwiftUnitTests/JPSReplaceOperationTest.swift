@@ -16,27 +16,51 @@ import SwiftyJSON
 // 4.  Operations
 // 4.3. replace
 class JPSReplaceOperationTests: XCTestCase {
-    
+
     // http://tools.ietf.org/html/rfc6902#appendix-A.5
     func testIfReplaceValueInObjectReturnsExpectedValue() {
-        let json = try! JSON(data: "{\"baz\": \"qux\",\"foo\": \"bar\"}".data(using: String.Encoding.utf8)!)
-        let jsonPatch = try! JPSJsonPatch("{ \"op\": \"replace\", \"path\": \"/baz\", \"value\": \"boo\" }")
-        let resultingJson = try! JPSJsonPatcher.applyPatch(jsonPatch, toJson: json)
-        let expectedJson = try! JSON(data: "  { \"baz\": \"boo\",\"foo\": \"bar\" } ".data(using: String.Encoding.utf8)!)
+        guard let json: JSON = try? JSON(data: "{\"baz\": \"qux\",\"foo\": \"bar\"}".data(using: String.Encoding.utf8)!) else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let jsonPatch: JPSJsonPatch = try? JPSJsonPatch("{ \"op\": \"replace\", \"path\": \"/baz\", \"value\": \"boo\" }") else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let resultingJson: JSON = try? JPSJsonPatcher.applyPatch(jsonPatch, toJson: json) else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let expectedJson: JSON = try? JSON(data: "  { \"baz\": \"boo\",\"foo\": \"bar\" } ".data(using: String.Encoding.utf8)!) else {
+            XCTFail("json parse error")
+            return
+        }
         XCTAssertEqual(resultingJson, expectedJson)
     }
 
     func testIfReplaceValueInArrayArrayReturnsExpectedValue() {
-        let json = try! JSON(data: " { \"foo\" : [1, 2, 3, 4], \"bar\" : []} ".data(using: String.Encoding.utf8)!)
-        let jsonPatch = try! JPSJsonPatch("{ \"op\": \"replace\", \"path\": \"/foo/1\", \"value\": 42 }")
-        let resultingJson = try! JPSJsonPatcher.applyPatch(jsonPatch, toJson: json)
-        let expectedJson = try! JSON(data: " { \"foo\" : [1, 42, 3, 4], \"bar\" : []}".data(using: String.Encoding.utf8)!)
+        guard let json: JSON = try? JSON(data: " { \"foo\" : [1, 2, 3, 4], \"bar\" : []} ".data(using: String.Encoding.utf8)!) else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let jsonPatch: JPSJsonPatch = try? JPSJsonPatch("{ \"op\": \"replace\", \"path\": \"/foo/1\", \"value\": 42 }") else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let resultingJson: JSON = try? JPSJsonPatcher.applyPatch(jsonPatch, toJson: json) else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let expectedJson: JSON = try? JSON(data: " { \"foo\" : [1, 42, 3, 4], \"bar\" : []}".data(using: String.Encoding.utf8)!) else {
+            XCTFail("json parse error")
+            return
+        }
         XCTAssertEqual(resultingJson, expectedJson)
     }
-    
+
     func testIfMissingValueRaisesError() {
         do {
-            let result = try JPSJsonPatch("{ \"op\": \"replace\", \"path\": \"/foo/1\" }") // value missing
+            let result: JPSJsonPatch = try JPSJsonPatch("{ \"op\": \"replace\", \"path\": \"/foo/1\" }") // value missing
             XCTFail(result.operations.last!.value.rawString()!)
         } catch JPSJsonPatch.JPSJsonPatchInitialisationError.invalidPatchFormat(message: let message) {
             // Expected behaviour.

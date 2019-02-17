@@ -1,0 +1,23 @@
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Pods
+  - Carthage
+  - FahrtenbuchUITests/SnapshotHelper.swift
+file_length:
+  warning: 700
+cyclomatic_complexity:
+  warning: 15
+function_body_length:
+  warning: 100
+function_parameter_count:
+  warning: 7
+type_body_length:
+  warning: 350
+identifier_name:
+  min_length:
+    warning: 2
+  max_length:
+    warning: 45
+opt_in_rules:
+  - explicit_type_interface
+line_length:
+  warning: 150

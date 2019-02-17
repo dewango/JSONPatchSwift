@@ -19,59 +19,143 @@ class JPSRemoveOperationTests: XCTestCase {
 
     // http://tools.ietf.org/html/rfc6902#appendix-A.3
     func testIfDeleteObjectMemberReturnsExpectedValue() {
-        let json = try! JSON(data: " { \"baz\": \"qux\", \"foo\": \"bar\"} ".data(using: String.Encoding.utf8)!)
-        let jsonPatch = try! JPSJsonPatch("{ \"op\": \"remove\", \"path\": \"/baz\" }")
-        let resultingJson = try! JPSJsonPatcher.applyPatch(jsonPatch, toJson: json)
-        let expectedJson = try! JSON(data: " { \"foo\": \"bar\" } ".data(using: String.Encoding.utf8)!)
+        guard let json: JSON = try? JSON(data: " { \"baz\": \"qux\", \"foo\": \"bar\"} ".data(using: String.Encoding.utf8)!) else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let jsonPatch: JPSJsonPatch = try? JPSJsonPatch("{ \"op\": \"remove\", \"path\": \"/baz\" }") else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let resultingJson: JSON = try? JPSJsonPatcher.applyPatch(jsonPatch, toJson: json) else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let expectedJson: JSON = try? JSON(data: " { \"foo\": \"bar\" } ".data(using: String.Encoding.utf8)!) else {
+            XCTFail("json parse error")
+            return
+        }
         XCTAssertEqual(resultingJson, expectedJson)
     }
-    
+
     // http://tools.ietf.org/html/rfc6902#appendix-A.4
     func testIfDeleteArrayElementReturnsExpectedValue() {
-        let json = try! JSON(data: " { \"foo\": [ \"bar\", \"qux\", \"baz\" ] } ".data(using: String.Encoding.utf8)!)
-        let jsonPatch = try! JPSJsonPatch("{ \"op\": \"remove\", \"path\": \"/foo/1\" }")
-        let resultingJson = try! JPSJsonPatcher.applyPatch(jsonPatch, toJson: json)
-        let expectedJson = try! JSON(data: " { \"foo\": [ \"bar\", \"baz\" ] } ".data(using: String.Encoding.utf8)!)
+        guard let json: JSON = try? JSON(data: " { \"foo\": [ \"bar\", \"qux\", \"baz\" ] } ".data(using: String.Encoding.utf8)!) else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let jsonPatch: JPSJsonPatch = try? JPSJsonPatch("{ \"op\": \"remove\", \"path\": \"/foo/1\" }") else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let resultingJson: JSON = try? JPSJsonPatcher.applyPatch(jsonPatch, toJson: json) else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let expectedJson: JSON = try? JSON(data: " { \"foo\": [ \"bar\", \"baz\" ] } ".data(using: String.Encoding.utf8)!) else {
+            XCTFail("json parse error")
+            return
+        }
         XCTAssertEqual(resultingJson, expectedJson)
     }
 
     func testIfDeleteLastElementReturnsEmptyJson() {
-        let json = try! JSON(data: " { \"foo\" : \"1\" } ".data(using: String.Encoding.utf8)!)
-        let jsonPatch = try! JPSJsonPatch("{ \"op\": \"remove\", \"path\": \"/foo\" }")
-        let resultingJson = try! JPSJsonPatcher.applyPatch(jsonPatch, toJson: json)
-        let expectedJson = try! JSON(data: "{ }".data(using: String.Encoding.utf8)!)
+        guard let json: JSON = try? JSON(data: " { \"foo\" : \"1\" } ".data(using: String.Encoding.utf8)!) else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let jsonPatch: JPSJsonPatch = try? JPSJsonPatch("{ \"op\": \"remove\", \"path\": \"/foo\" }") else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let resultingJson: JSON = try? JPSJsonPatcher.applyPatch(jsonPatch, toJson: json) else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let expectedJson: JSON = try? JSON(data: "{ }".data(using: String.Encoding.utf8)!) else {
+            XCTFail("json parse error")
+            return
+        }
         XCTAssertEqual(resultingJson, expectedJson)
     }
-    
+
     func testIfDeleteSubElementReturnsEmptyTopElement() {
-        let json = try! JSON(data: " { \"foo\" : { \"bar\" : \"1\" } } ".data(using: String.Encoding.utf8)!)
-        let jsonPatch = try! JPSJsonPatch("{ \"op\": \"remove\", \"path\": \"/foo/bar\" }")
-        let resultingJson = try! JPSJsonPatcher.applyPatch(jsonPatch, toJson: json)
-        let expectedJson = try! JSON(data: "{ \"foo\" : { } }".data(using: String.Encoding.utf8)!)
+        guard let json: JSON = try? JSON(data: " { \"foo\" : { \"bar\" : \"1\" } } ".data(using: String.Encoding.utf8)!) else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let jsonPatch: JPSJsonPatch = try? JPSJsonPatch("{ \"op\": \"remove\", \"path\": \"/foo/bar\" }") else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let resultingJson: JSON = try? JPSJsonPatcher.applyPatch(jsonPatch, toJson: json) else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let expectedJson: JSON = try? JSON(data: "{ \"foo\" : { } }".data(using: String.Encoding.utf8)!) else {
+            XCTFail("json parse error")
+            return
+        }
         XCTAssertEqual(resultingJson, expectedJson)
     }
-    
+
     func testIfDeleteLastArrayElementReturnsEmptyArray() {
-        let json = try! JSON(data: " { \"foo\" : { \"bar\" : \"1\" } } ".data(using: String.Encoding.utf8)!)
-        let jsonPatch = try! JPSJsonPatch("{ \"op\": \"remove\", \"path\": \"/foo/bar\" }")
-        let resultingJson = try! JPSJsonPatcher.applyPatch(jsonPatch, toJson: json)
-        let expectedJson = try! JSON(data: "{ \"foo\" : { } }".data(using: String.Encoding.utf8)!)
+        guard let json: JSON = try? JSON(data: " { \"foo\" : { \"bar\" : \"1\" } } ".data(using: String.Encoding.utf8)!) else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let jsonPatch: JPSJsonPatch = try? JPSJsonPatch("{ \"op\": \"remove\", \"path\": \"/foo/bar\" }") else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let resultingJson: JSON = try? JPSJsonPatcher.applyPatch(jsonPatch, toJson: json) else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let expectedJson: JSON = try? JSON(data: "{ \"foo\" : { } }".data(using: String.Encoding.utf8)!) else {
+            XCTFail("json parse error")
+            return
+        }
         XCTAssertEqual(resultingJson, expectedJson)
     }
 
     func testIfDeleteFromArrayDeletesTheExpectedKey() {
-        let json = try! JSON(data: " [ \"foo\", 42, \"bar\" ] ".data(using: String.Encoding.utf8)!)
-        let jsonPatch = try! JPSJsonPatch("{ \"op\": \"remove\", \"path\": \"/2\" }")
-        let resultingJson = try! JPSJsonPatcher.applyPatch(jsonPatch, toJson: json)
-        let expectedJson = try! JSON(data: " [ \"foo\", 42, ] ".data(using: String.Encoding.utf8)!)
+        guard let json: JSON = try? JSON(data: " [ \"foo\", 42, \"bar\" ] ".data(using: String.Encoding.utf8)!) else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let jsonPatch: JPSJsonPatch = try? JPSJsonPatch("{ \"op\": \"remove\", \"path\": \"/2\" }") else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let resultingJson: JSON = try? JPSJsonPatcher.applyPatch(jsonPatch, toJson: json) else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let expectedJson: JSON = try? JSON(data: " [ \"foo\", 42, ] ".data(using: String.Encoding.utf8)!) else {
+            XCTFail("json parse error")
+            return
+        }
         XCTAssertEqual(resultingJson, expectedJson)
     }
 
     func testIfDeleteFromMultiDimensionalArrayDeletesTheExpectedKey() {
-        let json = try! JSON(data: " [ \"foo\", [ \"foo\", 3, \"42\" ], \"bar\" ] ".data(using: String.Encoding.utf8)!)
-        let jsonPatch = try! JPSJsonPatch("{ \"op\": \"remove\", \"path\": \"/1/2\" }")
-        let resultingJson = try! JPSJsonPatcher.applyPatch(jsonPatch, toJson: json)
-        let expectedJson = try! JSON(data: " [ \"foo\", [ \"foo\", 3 ], \"bar\" ] ".data(using: String.Encoding.utf8)!)
+        guard let json: JSON = try? JSON(data: " [ \"foo\", [ \"foo\", 3, \"42\" ], \"bar\" ] ".data(using: String.Encoding.utf8)!) else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let jsonPatch: JPSJsonPatch = try? JPSJsonPatch("{ \"op\": \"remove\", \"path\": \"/1/2\" }") else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let resultingJson: JSON = try? JPSJsonPatcher.applyPatch(jsonPatch, toJson: json) else {
+            XCTFail("json parse error")
+            return
+        }
+        guard let expectedJson: JSON = try? JSON(data: " [ \"foo\", [ \"foo\", 3 ], \"bar\" ] ".data(using: String.Encoding.utf8)!) else {
+            XCTFail("json parse error")
+            return
+        }
         XCTAssertEqual(resultingJson, expectedJson)
     }
 }

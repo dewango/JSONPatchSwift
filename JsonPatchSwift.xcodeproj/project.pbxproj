@@ -264,7 +264,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if not which swiftlint >/dev/null; then\n  if not which brew >/dev/null; then\n    echo \"SwiftLint does not exist\"\n    exit 1\n  fi\n  brew install swiftlint\nfi\n\ncd JsonPatchSwift\nswiftlint\ncd ../JsonPatchSwiftTests\nswiftlint\n";
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		429E30792211C07300495F0D /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
