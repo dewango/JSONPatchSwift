@@ -28,7 +28,7 @@ class JPSDocumentStructureTests: XCTestCase {
     }
 
     func testJsonPatchReadsAllOperations() {
-        guard let jsonPatch = try? JPSJsonPatch("[{ \"op\": \"test\", \"path\": \"/a/b/c\", \"value\": \"foo\" }, "
+        guard let jsonPatch: JPSJsonPatch = try? JPSJsonPatch("[{ \"op\": \"test\", \"path\": \"/a/b/c\", \"value\": \"foo\" }, "
             + "{ \"op\": \"test\", \"path\": \"/a/b/c\", \"value\": \"foo\" }, { \"op\": \"test\", \"path\": "
             + "\"/a/b/c\", \"value\": \"foo\" }]") else {
                 XCTFail("json parse error")
@@ -43,7 +43,7 @@ class JPSDocumentStructureTests: XCTestCase {
     }
 
     func testJsonPatchOperationsHaveSameOrderAsInJsonRepresentation() {
-        guard let jsonPatch = try? JPSJsonPatch("[{ \"op\": \"test\", \"path\": \"/a/b/c\", \"value\": \"foo\" }, "
+        guard let jsonPatch: JPSJsonPatch = try? JPSJsonPatch("[{ \"op\": \"test\", \"path\": \"/a/b/c\", \"value\": \"foo\" }, "
             + "{ \"op\": \"add\", \"path\": \"/a/b/c\", \"value\": \"foo\" }, { \"op\": \"remove\", \"path\": "
             + "\"/a/b/c\", \"value\": \"foo\" }]") else {
                 XCTFail("json parse error")
@@ -68,6 +68,7 @@ class JPSDocumentStructureTests: XCTestCase {
         do {
             _ = try JPSJsonPatch("!#€%&/()*^*_:;;:;_poawolwasnndaw")
             XCTFail("Unreachable code. Should have raised an error.")
+            // swiftlint:disable:next explicit_type_interface
         } catch JPSJsonPatch.JPSJsonPatchInitialisationError.invalidJsonFormat(let message) {
             // Expected behaviour.
             XCTAssertNotNil(message)
@@ -77,7 +78,7 @@ class JPSDocumentStructureTests: XCTestCase {
     }
 
     func testJsonPatchWithDictionaryAsRootElementForOperationTest() {
-        guard let jsonPatch = try? JPSJsonPatch("{ \"op\": \"test\", \"path\": \"/a/b/c\", \"value\": \"foo\" }") else {
+        guard let jsonPatch: JPSJsonPatch = try? JPSJsonPatch("{ \"op\": \"test\", \"path\": \"/a/b/c\", \"value\": \"foo\" }") else {
             XCTFail("json parse error")
             return
         }
@@ -85,7 +86,7 @@ class JPSDocumentStructureTests: XCTestCase {
         XCTAssertNotNil(jsonPatch.operations)
         XCTAssertEqual(jsonPatch.operations.count, 1)
         XCTAssertTrue((jsonPatch.operations[0] as Any) is JPSOperation)
-        let operation0 = jsonPatch.operations[0]
+        let operation0: JPSOperation = jsonPatch.operations[0]
         XCTAssertEqual(operation0.type, JPSOperation.JPSOperationType.test)
     }
 
@@ -124,7 +125,7 @@ class JPSDocumentStructureTests: XCTestCase {
         XCTAssertNotNil(jsonPatch.operations)
         XCTAssertEqual(jsonPatch.operations.count, 1)
         XCTAssertTrue((jsonPatch.operations[0] as Any) is JPSOperation)
-        let operation0 = jsonPatch.operations[0]
+        let operation0: JPSOperation = jsonPatch.operations[0]
         XCTAssertEqual(operation0.type, JPSOperation.JPSOperationType.remove)
     }
 
@@ -137,7 +138,7 @@ class JPSDocumentStructureTests: XCTestCase {
         XCTAssertNotNil(jsonPatch.operations)
         XCTAssertEqual(jsonPatch.operations.count, 1)
         XCTAssertTrue((jsonPatch.operations[0] as Any) is JPSOperation)
-        let operation0 = jsonPatch.operations[0]
+        let operation0: JPSOperation = jsonPatch.operations[0]
         XCTAssertEqual(operation0.type, JPSOperation.JPSOperationType.replace)
     }
 
@@ -145,6 +146,7 @@ class JPSDocumentStructureTests: XCTestCase {
         do {
             _ = try JPSJsonPatch("{ \"path\": \"/a/b/c\", \"value\": \"foo\" }")
             XCTFail("Unreachable code. Should have raised an error.")
+            // swiftlint:disable:next explicit_type_interface
         } catch JPSJsonPatch.JPSJsonPatchInitialisationError.invalidPatchFormat(let message) {
             // Expected behaviour.
             XCTAssertNotNil(message)
@@ -158,6 +160,7 @@ class JPSDocumentStructureTests: XCTestCase {
         do {
             _ = try JPSJsonPatch("{ \"op\": \"add\", \"value\": \"foo\" }")
             XCTFail("Unreachable code. Should have raised an error.")
+            // swiftlint:disable:next explicit_type_interface
         } catch JPSJsonPatch.JPSJsonPatchInitialisationError.invalidPatchFormat(let message) {
             // Expected behaviour.
             XCTAssertNotNil(message)
@@ -183,6 +186,7 @@ class JPSDocumentStructureTests: XCTestCase {
         do {
             _ = try JPSJsonPatch("{ \"op\": \"add\", \"path\": \"foo\" }")
             XCTFail("Unreachable code. Should have raised an error.")
+            // swiftlint:disable:next explicit_type_interface
         } catch JPSJsonPatch.JPSJsonPatchInitialisationError.invalidPatchFormat(let message) {
             // Expected behaviour.
             XCTAssertNotNil(message)
@@ -196,6 +200,7 @@ class JPSDocumentStructureTests: XCTestCase {
         do {
             _ = try JPSJsonPatch("[]")
             XCTFail("Unreachable code. Should have raised an error.")
+            // swiftlint:disable:next explicit_type_interface
         } catch JPSJsonPatch.JPSJsonPatchInitialisationError.invalidPatchFormat(let message) {
             // Expected behaviour.
             XCTAssertNotNil(message)
@@ -255,6 +260,7 @@ class JPSDocumentStructureTests: XCTestCase {
         do {
             _ = try JPSJsonPatch("{\"op\" : \"foo\", \"path\" : \"/a/b\"}")
             XCTFail("Unreachable code. Should have raised an error.")
+            // swiftlint:disable:next explicit_type_interface
         } catch JPSJsonPatch.JPSJsonPatchInitialisationError.invalidPatchFormat(let message) {
             // Expected behaviour.
             XCTAssertNotNil(message)

@@ -48,13 +48,13 @@ extension JPSJsonPointer {
             throw JPSJsonPointerError.nonEmptyPointerDoesNotStartWithDelimiter
         }
         
-        let pointerValueWithoutFirstElement = Array(rawValue.components(separatedBy: JPSConstants.JsonPointer.Delimiter).dropFirst())
+        let pointerValueWithoutFirstElement: [String] = Array(rawValue.components(separatedBy: JPSConstants.JsonPointer.Delimiter).dropFirst())
         
         guard rawValue.isEmpty || !pointerValueWithoutFirstElement.contains(JPSConstants.JsonPointer.EmptyString) else {
             throw JPSJsonPointerError.containsEmptyReferenceToken
         }
         
-        let pointerValueAfterDecodingDelimiter = pointerValueWithoutFirstElement.map { $0.replacingOccurrences(of: JPSConstants.JsonPointer.EscapedDelimiter, with: JPSConstants.JsonPointer.Delimiter) }
+        let pointerValueAfterDecodingDelimiter: [String] = pointerValueWithoutFirstElement.map { $0.replacingOccurrences(of: JPSConstants.JsonPointer.EscapedDelimiter, with: JPSConstants.JsonPointer.Delimiter) }
         let pointerValue: [JSONSubscriptType] = pointerValueAfterDecodingDelimiter.map { $0.replacingOccurrences(of: JPSConstants.JsonPointer.EscapedEscapeCharacter, with: JPSConstants.JsonPointer.EscapeCharater)}
         
         self.init(rawValue: rawValue, pointerValue: pointerValue)
@@ -64,7 +64,7 @@ extension JPSJsonPointer {
 
 extension JPSJsonPointer {
     static func traverse(_ pointer: JPSJsonPointer) -> JPSJsonPointer {
-        let pointerValueWithoutFirstElement = Array(pointer.rawValue.components(separatedBy: JPSConstants.JsonPointer.Delimiter).dropFirst().dropFirst()).joined(separator: JPSConstants.JsonPointer.Delimiter)
+        let pointerValueWithoutFirstElement: String = Array(pointer.rawValue.components(separatedBy: JPSConstants.JsonPointer.Delimiter).dropFirst().dropFirst()).joined(separator: JPSConstants.JsonPointer.Delimiter)
         // swiftlint:disable force_try
         return try! JPSJsonPointer(rawValue: JPSConstants.JsonPointer.Delimiter + pointerValueWithoutFirstElement)
         // swiftlint:enable force_try

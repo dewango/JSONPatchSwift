@@ -16,7 +16,7 @@ import SwiftyJSON
 // 4.  Operations
 // 4.5. copy
 class JPSCopyOperationTests: XCTestCase {
-    
+
     func testIfCopyReplaceValueInObjectReturnsExpectedValue() {
         guard let json: JSON = try? JSON(data: " { \"foo\" : { \"1\" : 2 }, \"bar\" : { }} ".data(using: String.Encoding.utf8)!) else {
             XCTFail("json parse error")
@@ -84,6 +84,7 @@ class JPSCopyOperationTests: XCTestCase {
         do {
             let result: JPSJsonPatch = try JPSJsonPatch("{ \"op\": \"copy\", \"path\": \"/bar\"}") // from parameter missing
             XCTFail(result.operations.last!.value.rawString()!)
+            // swiftlint:disable:next explicit_type_interface
         } catch JPSJsonPatch.JPSJsonPatchInitialisationError.invalidPatchFormat(message: let message) {
             // Expected behaviour.
             XCTAssertNotNil(message)

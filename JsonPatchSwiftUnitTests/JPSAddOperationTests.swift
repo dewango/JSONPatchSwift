@@ -197,6 +197,7 @@ class JPSAddOperationTests: XCTestCase {
             }
             _ = try JPSJsonPatcher.applyPatch(jsonPatch, toJson: json)
             XCTFail("Unreachable code. Should have raised an error, because the array index is out of bounds.")
+            // swiftlint:disable:next explicit_type_interface
         } catch let message {
             // Expected behaviour.
             XCTAssertNotNil(message)
@@ -275,6 +276,7 @@ class JPSAddOperationTests: XCTestCase {
             }
             _ = try JPSJsonPatcher.applyPatch(jsonPatch, toJson: json)
             XCTFail("Unreachable code. Should have raised an error, because 'a' must exist to access 'b'.")
+            // swiftlint:disable:next explicit_type_interface
         } catch let message {
             XCTAssertNotNil(message)
         }

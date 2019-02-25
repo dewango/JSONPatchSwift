@@ -16,7 +16,7 @@ import SwiftyJSON
 // 4.  Operations
 // 4.4.  move
 class JPSMoveOperationTests: XCTestCase {
-    
+
     // http://tools.ietf.org/html/rfc6902#appendix-A.6
     func testIfMoveValueInObjectReturnsExpectedValue() {
         guard let json: JSON = try? JSON(data: ("{ \"foo\": { \"bar\": \"baz\","
@@ -106,6 +106,7 @@ class JPSMoveOperationTests: XCTestCase {
         do {
             let result: JPSJsonPatch = try JPSJsonPatch("{ \"op\": \"move\", \"path\": \"/bar\"}") // 'from' parameter missing
             XCTFail(result.operations.last!.value.rawString()!)
+            // swiftlint:disable:next explicit_type_interface
         } catch JPSJsonPatch.JPSJsonPatchInitialisationError.invalidPatchFormat(message: let message) {
             // Expected behaviour.
             XCTAssertNotNil(message)

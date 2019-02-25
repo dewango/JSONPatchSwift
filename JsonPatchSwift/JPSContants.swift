@@ -16,45 +16,45 @@ struct JPSConstants {
     struct JsonPatch {
         
         struct Parameter {
-            static let OpConst = "op"
-            static let Path = "path"
-            static let Value = "value"
-            static let From = "from"
+            static let OpConst: String = "op"
+            static let Path: String = "path"
+            static let Value: String = "value"
+            static let From: String = "from"
         }
         
         struct InitialisationErrorMessages {
-            static let PatchEncoding = "Could not encode patch."
-            static let PatchWithEmptyError = "Patch array does not contain elements."
-            static let InvalidRootElement = "Root element is not an array of dictionaries or a single dictionary."
-            static let OpElementNotFound = "Could not find 'op' element."
-            static let PathElementNotFound = "Could not find 'path' element."
-            static let InvalidOperation = "Operation is invalid."
-            static let FromElementNotFound = "Could not find 'from' element."
-            static let ValueElementNotFound = "Could not find 'value' element."
+            static let PatchEncoding: String = "Could not encode patch."
+            static let PatchWithEmptyError: String = "Patch array does not contain elements."
+            static let InvalidRootElement: String = "Root element is not an array of dictionaries or a single dictionary."
+            static let OpElementNotFound: String = "Could not find 'op' element."
+            static let PathElementNotFound: String = "Could not find 'path' element."
+            static let InvalidOperation: String = "Operation is invalid."
+            static let FromElementNotFound: String = "Could not find 'from' element."
+            static let ValueElementNotFound: String = "Could not find 'value' element."
         }
         
         struct ErrorMessages {
-            static let ValidationError = "Could not validate JSON."
+            static let ValidationError: String = "Could not validate JSON."
         }
         
     }
 
     struct Operation {
-        static let Add = "add"
-        static let Remove = "remove"
-        static let Replace = "replace"
-        static let Move = "move"
-        static let Copy = "copy"
-        static let Test = "test"
+        static let Add: String = "add"
+        static let Remove: String = "remove"
+        static let Replace: String = "replace"
+        static let Move: String = "move"
+        static let Copy: String = "copy"
+        static let Test: String = "test"
     }
     
     struct JsonPointer {
-        static let Delimiter = "/"
-        static let EndOfArrayMarker = "-"
-        static let EmptyString = ""
-        static let EscapeCharater = "~"
-        static let EscapedDelimiter = "~1"
-        static let EscapedEscapeCharacter = "~0"
+        static let Delimiter: String = "/"
+        static let EndOfArrayMarker: String = "-"
+        static let EmptyString: String = ""
+        static let EscapeCharater: String = "~"
+        static let EscapedDelimiter: String = "~1"
+        static let EscapedEscapeCharacter: String = "~0"
     }
     
 }

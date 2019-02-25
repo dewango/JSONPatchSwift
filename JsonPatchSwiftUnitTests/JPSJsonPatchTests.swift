@@ -23,15 +23,15 @@ class JPSJsonPatchTests: XCTestCase {
             + "{ \"op\": \"remove\", \"path\": \"/foo\" },"
             + "{ \"op\": \"add\", \"path\": \"/bar\", \"value\": \"foo\" },"
             + "]"
-        guard let jsonPatch = try? JPSJsonPatch(patch) else {
+        guard let jsonPatch: JPSJsonPatch = try? JPSJsonPatch(patch) else {
             XCTFail("json parse error")
             return
         }
-        guard let resultingJson = try? JPSJsonPatcher.applyPatch(jsonPatch, toJson: json) else {
+        guard let resultingJson: JSON = try? JPSJsonPatcher.applyPatch(jsonPatch, toJson: json) else {
             XCTFail("json parse error")
             return
         }
-        guard let expectedJson = try? JSON(data: "{ \"bar\" : \"foo\" }".data(using: String.Encoding.utf8)!) else {
+        guard let expectedJson: JSON = try? JSON(data: "{ \"bar\" : \"foo\" }".data(using: String.Encoding.utf8)!) else {
             XCTFail("json parse error")
             return
         }
@@ -39,23 +39,23 @@ class JPSJsonPatchTests: XCTestCase {
     }
 
     func testMultipleOperations2() {
-        guard let json = try? JSON(data: " { \"foo\" : \"bar\" } ".data(using: String.Encoding.utf8)!) else {
+        guard let json: JSON = try? JSON(data: " { \"foo\" : \"bar\" } ".data(using: String.Encoding.utf8)!) else {
             XCTFail("json parse error")
             return
         }
-        let patch = "["
+        let patch: String = "["
             + "{ \"op\": \"add\", \"path\": \"/bar\", \"value\": \"foo\" },"
             + "{ \"op\": \"remove\", \"path\": \"/foo\" },"
             + "]"
-        guard let jsonPatch = try? JPSJsonPatch(patch) else {
+        guard let jsonPatch: JPSJsonPatch = try? JPSJsonPatch(patch) else {
             XCTFail("json parse error")
             return
         }
-        guard let resultingJson = try? JPSJsonPatcher.applyPatch(jsonPatch, toJson: json) else {
+        guard let resultingJson: JSON = try? JPSJsonPatcher.applyPatch(jsonPatch, toJson: json) else {
             XCTFail("json parse error")
             return
         }
-        guard let expectedJson = try? JSON(data: "{ \"bar\" : \"foo\" }".data(using: String.Encoding.utf8)!) else {
+        guard let expectedJson: JSON = try? JSON(data: "{ \"bar\" : \"foo\" }".data(using: String.Encoding.utf8)!) else {
             XCTFail("json parse error")
             return
         }
@@ -63,7 +63,7 @@ class JPSJsonPatchTests: XCTestCase {
     }
 
     func testMultipleOperations3() {
-        guard let json = try? JSON(data: " { \"foo\" : \"bar\" } ".data(using: String.Encoding.utf8)!) else {
+        guard let json: JSON = try? JSON(data: " { \"foo\" : \"bar\" } ".data(using: String.Encoding.utf8)!) else {
             XCTFail("json parse error")
             return
         }

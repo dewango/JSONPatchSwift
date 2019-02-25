@@ -62,6 +62,7 @@ class JPSReplaceOperationTests: XCTestCase {
         do {
             let result: JPSJsonPatch = try JPSJsonPatch("{ \"op\": \"replace\", \"path\": \"/foo/1\" }") // value missing
             XCTFail(result.operations.last!.value.rawString()!)
+            // swiftlint:disable:next explicit_type_interface
         } catch JPSJsonPatch.JPSJsonPatchInitialisationError.invalidPatchFormat(message: let message) {
             // Expected behaviour.
             XCTAssertNotNil(message)

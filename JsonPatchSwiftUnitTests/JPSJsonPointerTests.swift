@@ -30,7 +30,7 @@ extension JPSJsonPointerTests {
     }
 
     func testIfJsonPointerIsAString() {
-        guard let jsonPointer = try? JPSJsonPointer(rawValue: "/a/b") else {
+        guard let jsonPointer: JPSJsonPointer = try? JPSJsonPointer(rawValue: "/a/b") else {
             XCTFail("json parse error")
             return
         }
